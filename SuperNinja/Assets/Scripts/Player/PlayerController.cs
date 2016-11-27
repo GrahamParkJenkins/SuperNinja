@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
     public int mHealth;
 
     public float mSpeed;
-
+    public float mScrollSpeed;
     public float mJumpSpeed;
 
     bool mInJump = false;
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
     {
         float hor = Input.GetAxis("Horizontal");
 
-        mRigidBody.AddForce(new Vector2(hor, 0) * mSpeed * Time.deltaTime);
+        mRigidBody.AddForce(new Vector2(mScrollSpeed, 0) * mSpeed * Time.deltaTime);
 
         if (mJumpKeyPressed && mGrounded)
         {
