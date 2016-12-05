@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour {
 
     bool mGrounded = false;
 
+    public Transform firePoint;
+    public GameObject shuriken;
+
 	void Start ()
     {
         mRigidBody = GetComponent<Rigidbody2D>();
@@ -54,6 +57,11 @@ public class PlayerController : MonoBehaviour {
         if(mHealth <= 0)
         {
             Destroy(this.gameObject);
+        }
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            Instantiate(shuriken, firePoint.transform.position, firePoint.transform.rotation);
         }
 
     }

@@ -175,9 +175,9 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11400690, guid: 0efb739b2b332ef449c3b51ecf145f1c, type: 2}
-      propertyPath: mScrollSpeed
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: shuriken
+      value: 
+      objectReference: {fileID: 195616, guid: 421d6d1cdaed19d47abb941caa6016a2, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0efb739b2b332ef449c3b51ecf145f1c, type: 2}
   m_IsPrefabParent: 0

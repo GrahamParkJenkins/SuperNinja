@@ -51,6 +51,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &193860
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 463308}
+  m_Layer: 9
+  m_Name: Firepoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -1089502233064743932, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &418992
 Transform:
   m_ObjectHideFlags: 1
@@ -63,6 +78,7 @@ Transform:
   m_Children:
   - {fileID: 456678}
   - {fileID: 422128}
+  - {fileID: 463308}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &422128
@@ -89,6 +105,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 418992}
   m_RootOrder: 0
+--- !u!4 &463308
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193860}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.127, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 418992}
+  m_RootOrder: 2
 --- !u!50 &5061348
 Rigidbody2D:
   serializedVersion: 2
@@ -133,7 +161,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mHealth: 3
   mSpeed: 700
+  mScrollSpeed: 1
   mJumpSpeed: 20000
+  firePoint: {fileID: 463308}
+  shuriken: {fileID: 0}
 --- !u!212 &21203668
 SpriteRenderer:
   m_ObjectHideFlags: 1
