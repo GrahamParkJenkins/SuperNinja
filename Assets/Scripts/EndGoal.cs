@@ -3,7 +3,7 @@ using System.Collections;
 
 public class EndGoal : MonoBehaviour {
 
-
+    public LevelManager levelManager;
 	
 	void Start ()
     {
@@ -19,7 +19,9 @@ public class EndGoal : MonoBehaviour {
     {
         if(col.tag == "Player")
         {
-            Destroy(col.gameObject);
+            levelManager.levelUp = true;
+            levelManager.levelCount++;
+            levelManager.levelUp = false;
         }
     }
 }
