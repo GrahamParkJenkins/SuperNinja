@@ -20,7 +20,7 @@ public class KillZone : MonoBehaviour {
     {
         if(col.tag == "Player")
         {
-            Destroy(col.gameObject);
+            GameManager.sInstance.PlayerDie();
         }
     }
 

@@ -6,18 +6,45 @@ public class LevelManager : MonoBehaviour
     public GameObject[] Levels;
     public int levelCount;
     public bool levelUp;
+
+    public Transform mStartPos;
+
+    GameObject mCurrentLevel;
+
     // Use this for initialization
     void Start()
     {
-        levelUp = false;
+
+        Levels[levelCount].SetActive(true);
+
+        mCurrentLevel = Instantiate(Levels[levelCount], mStartPos.position, mStartPos.rotation) as GameObject;
+
+        GameManager.sInstance.mPlayerController.gameObject.transform.position = mCurrentLevel.GetComponent<Level>().mStartPos.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void LevelUp()
     {
-        if(levelUp == true)
+        levelCount++;
+        if(levelCount <= Levels.Length - 1)
         {
-            Instantiate(Levels[levelCount]);
+            Levels[levelCount - 1].SetActive(false);
+            Levels[levelCount].SetActive(true);
+
+            Destroy(mCurrentLevel);
+
+            mCurrentLevel = Instantiate(Levels[levelCount], mStartPos.position, mStartPos.rotation) as GameObject;
+
+            GameManager.sInstance.mPlayerController.gameObject.transform.position = mCurrentLevel.GetComponent<Level>().mStartPos.position;
         }
+
+    }
+
+    public void Restart()
+    {
+        Destroy(mCurrentLevel);
+
+        mCurrentLevel = Instantiate(Levels[levelCount], mStartPos.position, mStartPos.rotation) as GameObject;
+
+        GameManager.sInstance.mPlayerController.gameObject.transform.position = mCurrentLevel.GetComponent<Level>().mStartPos.position;
     }
 }
