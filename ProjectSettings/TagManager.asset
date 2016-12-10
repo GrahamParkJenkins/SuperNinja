@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - InvisBlock
   - Enemy
+  - Bullet
+  - PickUp
   layers:
   - Default
   - TransparentFX

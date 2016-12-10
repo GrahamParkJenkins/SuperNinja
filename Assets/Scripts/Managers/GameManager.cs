@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour {
             mLives = 0;
             //you die
             mPlayerController.enabled = false;
+            Time.timeScale = 0;
         }
         else
         {

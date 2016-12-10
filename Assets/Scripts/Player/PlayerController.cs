@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetKeyDown(KeyCode.J))
         {
             mJumpKeyPressed = true;
         }
@@ -55,6 +55,14 @@ public class PlayerController : MonoBehaviour {
     void OnCollisionEnter2D(Collision2D col)
     {
         if(col.gameObject.tag == "Ground")
+        {
+            mGrounded = true;
+        }
+    }
+
+    void OnCollisionStay2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Ground")
         {
             mGrounded = true;
         }
