@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{B86979DE-333A-27A0-3406-4A6AFA374447}") = "SuperNinja-master", "Assembly-CSharp.csproj", "{385CC8C7-2063-2308-47F4-9FEC1FAE4796}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{385CC8C7-2063-2308-47F4-9FEC1FAE4796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{385CC8C7-2063-2308-47F4-9FEC1FAE4796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{385CC8C7-2063-2308-47F4-9FEC1FAE4796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{385CC8C7-2063-2308-47F4-9FEC1FAE4796}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

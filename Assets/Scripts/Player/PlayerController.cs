@@ -5,15 +5,8 @@ public class PlayerController : MonoBehaviour {
 
     Rigidbody2D mRigidBody;
 
-    [Range(0,3)]
-    public int mHealth;
-
-    public float mSpeed;
     public float mScrollSpeed;
     public float mJumpSpeed;
-
-    bool mInJump = false;
-    bool mDoubleJumped = false;
 
     bool mJumpKeyPressed = false;
 
@@ -30,9 +23,7 @@ public class PlayerController : MonoBehaviour {
 
 	void FixedUpdate ()
     {
-        float hor = Input.GetAxis("Horizontal");
-
-        mRigidBody.AddForce(new Vector2(mScrollSpeed, 0) * mSpeed * Time.deltaTime);
+        mRigidBody.AddForce(new Vector2(mScrollSpeed, 0) * Time.deltaTime);
 
         if (mJumpKeyPressed && mGrounded)
         {
@@ -52,11 +43,6 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetButtonDown("Jump"))
         {
             mJumpKeyPressed = true;
-        }
-        
-        if(mHealth <= 0)
-        {
-            Destroy(this.gameObject);
         }
 
         if(Input.GetKeyDown(KeyCode.F))

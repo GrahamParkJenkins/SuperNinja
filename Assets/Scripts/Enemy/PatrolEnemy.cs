@@ -3,43 +3,19 @@ using System.Collections;
 
 public class PatrolEnemy : Enemy {
 
-    bool mFacingRight = true;
-
-    public float mSpeed;
-
-    float mCurrDir = 0;
+    float mCurrDir = 1;
 
     Rigidbody2D mRigidBody;
 
 	void Start ()
     {
         mRigidBody = GetComponent<Rigidbody2D>();
+        mSpeed = 500;
     }
-	
-	
-	void Update ()
-    {
-        if (mFacingRight)
-        {
-            mCurrDir = 1;
-        }
-        else
-        {
-            mCurrDir = -1;
-        }
-
-
-
-	}
 
     void FixedUpdate()
     {
         mRigidBody.AddForce(new Vector2(mCurrDir, 0) * mSpeed * Time.deltaTime);
-    }
-
-    void TurnAround()
-    {
-        mFacingRight = !mFacingRight;
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -47,12 +23,12 @@ public class PatrolEnemy : Enemy {
         if(col.gameObject.tag == "InvisBlock")
         {
             Debug.Log("hitWall");
-            TurnAround();
+            mCurrDir = -mCurrDir;
         }
 
         if(col.gameObject.tag == "Player")
         {
-            col.gameObject.GetComponent<PlayerController>().mHealth -= mDamage;
+            GameManager.sInstance.PlayerDie();
             Debug.Log("hit me with your best shot");
         }
     }

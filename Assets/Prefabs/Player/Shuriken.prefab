@@ -13,7 +13,7 @@ GameObject:
   - 212: {fileID: 21291276}
   - 114: {fileID: 11428708}
   - 114: {fileID: 11404094}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Shuriken
   m_TagString: Untagged
   m_Icon: {fileID: 0}
