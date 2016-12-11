@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Environment\EndGoal.cs" />
     <Compile Include="Assets\Scripts\Environment\Level.cs" />
     <Compile Include="Assets\Scripts\Environment\Pickup.cs" />
+    <Compile Include="Assets\Scripts\Environment\RotateObj.cs" />
     <Compile Include="Assets\Scripts\Managers\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\Scripts\Managers\LevelManager.cs" />
