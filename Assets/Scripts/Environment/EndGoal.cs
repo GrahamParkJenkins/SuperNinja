@@ -7,7 +7,7 @@ public class EndGoal : MonoBehaviour {
     {
         if(col.tag == "Player")
         {
-            GameManager.sInstance.mLevelManager.LevelUp();
+            GameManager.sInstance.mLevelManager.ShowResults();
         }
     }
 }

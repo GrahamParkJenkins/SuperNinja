@@ -22,7 +22,6 @@ public class PatrolEnemy : Enemy {
     {
         if(col.gameObject.tag == "InvisBlock")
         {
-            Debug.Log("hitWall");
             mCurrDir = -mCurrDir;
         }
 
@@ -31,7 +30,6 @@ public class PatrolEnemy : Enemy {
         if(col.gameObject.tag == "Player")
         {
             GameManager.sInstance.PlayerDie();
-            Debug.Log("hit me with your best shot");
         }
     }
 
@@ -39,6 +37,7 @@ public class PatrolEnemy : Enemy {
     {
         if(col.tag == "Bullet")
         {
+            GameManager.sInstance.AddKill(1);
             Destroy(col.gameObject);
             Destroy(this.gameObject);
         }

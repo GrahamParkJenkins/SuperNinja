@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
 
     List<GameObject> mSpawnedEnemies = new List<GameObject>();
 
+    bool mCanContinue = true;
 
     // Use this for initialization
     void Start()
@@ -36,6 +37,7 @@ public class LevelManager : MonoBehaviour
 
     public void LevelUp()
     {
+        GameManager.sInstance.mLives = GameManager.sInstance.mMaxLives;
         if (mCurrLevel < mLevels.Length)
         {
             mLevels[mCurrLevel - 1].gameObject.SetActive(false);
@@ -51,6 +53,13 @@ public class LevelManager : MonoBehaviour
 
         }
 
+    }
+
+    public void ShowResults()
+    {
+        GameManager.sInstance.mUIManager.mEndGameImage.SetActive(true);
+        GameManager.sInstance.mUIManager.SetResults(GameManager.sInstance.mEnemiesKilled, GameManager.sInstance.mCoins, mLevels[mCurrLevel - 1].mEnemySpawn.Length, mLevels[mCurrLevel - 1].mCoinSpawn.Length);
+        GameManager.sInstance.mPaused = true;
     }
 
     void RepawnCoins()
@@ -71,12 +80,13 @@ public class LevelManager : MonoBehaviour
 
             tempObj = Instantiate(mCoinPrefab, mLevels[mCurrLevel - 1].mCoinSpawn[i].transform.position, mLevels[mCurrLevel - 1].mCoinSpawn[i].transform.rotation) as GameObject;
             mPlacedCoins.Add(tempObj);
-            Debug.Log("i got here!!");
         }
     }
 
     void RepawnEnemies()
     {
+        GameManager.sInstance.mEnemiesKilled = 0;
+
         GameObject tempObj;
 
         for (int j = 0; j < mSpawnedEnemies.Count; j++)
@@ -91,7 +101,6 @@ public class LevelManager : MonoBehaviour
 
             tempObj = Instantiate(mEnemyPrefab, mLevels[mCurrLevel - 1].mEnemySpawn[i].transform.position, mLevels[mCurrLevel - 1].mEnemySpawn[i].transform.rotation) as GameObject;
             mSpawnedEnemies.Add(tempObj);
-            Debug.Log("i got here!!");
         }
     }
     

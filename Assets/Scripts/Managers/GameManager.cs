@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
 
     public LevelManager mLevelManager;
 
+    public UIManager mUIManager;
+
     public PlayerController mPlayerController;
 
     public CameraController mCameraController;
@@ -17,7 +19,14 @@ public class GameManager : MonoBehaviour {
 
     public int mLives;
 
+    public int mMaxLives;
+
     public int mCoins;
+
+    public int mEnemiesKilled;
+
+    public bool mPaused = false;
+
 
     void Awake()
     {
@@ -31,6 +40,7 @@ public class GameManager : MonoBehaviour {
         }
 
         mLevelNumber = 1;
+        mMaxLives = mLives;
     }
 
     public void PlayerDie()
@@ -40,7 +50,6 @@ public class GameManager : MonoBehaviour {
         {
             mLives = 0;
             //you die
-            mPlayerController.enabled = false;
             Time.timeScale = 0;
         }
         else
@@ -56,6 +65,15 @@ public class GameManager : MonoBehaviour {
             mCoins += amount;
         }
     }
+
+
+    public void AddKill(int amount)
+    {
+        if (amount >= 0)
+        {
+            mEnemiesKilled += amount;
+        }
+    }
 	
 	void Start ()
     {
@@ -65,6 +83,12 @@ public class GameManager : MonoBehaviour {
 	
 	void Update ()
     {
-	    
+        if (mPaused)
+        {
+            Time.timeScale = 0;
+        }else
+        {
+            Time.timeScale = 1;
+        }
 	}
 }
